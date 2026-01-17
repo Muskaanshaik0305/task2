@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muskaan Portfolio</title>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{
+    background:#1e4e4e;
+    color:#ffffff;
+}
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.4);
+    z-index:1000;
+}
+.logo{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+nav a{
+    margin-left:25px;
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    position:relative;
+}
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#00f2ff;
+    left:0;
+    bottom:-6px;
+    transition:.4s;
+}
+nav a:hover::after{width:100%;}
+
+section{
+    min-height:100vh;
+    padding:120px 8%;
+}
+
+.section-title{
+    font-size:42px;
+    font-weight:700;
+    position:relative;
+    display:inline-block;
+    margin-bottom:40px;
+}
+.section-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-10px;
+    width:60px;
+    height:4px;
+    background:#00f2ff;
+    border-radius:10px;
+}
+
+.home{
+    display:flex;
+    align-items:center;
+    gap:60px;
+}
+.hero-image img{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #00f2ff;
+    animation:float 4s ease-in-out infinite;
+}
+.hero-content h1{
+    font-size:52px;
+    line-height:1.2;
+}
+.hero-content span{color:#00f2ff;}
+.hero-content p{
+    margin-top:20px;
+    max-width:500px;
+    line-height:1.7;
+    opacity:.9;
+}
+
+.resume-btn{
+    margin-top:30px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    background:#00f2ff;
+    color:#000;
+    font-weight:600;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.4s;
+}
+.resume-btn:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(0,242,255,.6);
+}
+
+.about-section p{
+    max-width:700px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.skills-list li{
+    margin-bottom:18px;
+    padding:14px 20px;
+    background:rgba(255,255,255,0.15);
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+    font-weight:500;
+}
+
+/* Progress bar */
+.skills-list li::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#3c3f3f,#5ab693);
+    z-index:-1;
+    animation:fillSkill 2.5s ease forwards;
+}
+
+/* Individual skill levels */
+.skills-list li:nth-child(1){--level:100%;}
+.skills-list li:nth-child(2){--level:85%;}
+.skills-list li:nth-child(3){--level:80%;}
+.skills-list li:nth-child(4){--level:65%;}
+.skills-list li:nth-child(5){--level:75%;}
+.skills-list li:nth-child(6){--level:70%;}
+
+@keyframes fillSkill{
+    from{width:0;}
+    to{width:var(--level);}
+}
+
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+.project-card{
+    background:rgba(255,255,255,0.12);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.4s;
+}
+.project-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+.project-content{
+    padding:20px;
+}
+.project-card h2{
+    color:#00f2ff;
+    margin-bottom:10px;
+}
+.project-card:hover{
+    transform:translateY(-12px) scale(1.04);
+    box-shadow:0 15px 35px rgba(0,242,255,.5);
+}
+
+.contact{
+    text-align:center;
+}
+.contact-icons{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+.contact-icons a{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+    transition:.4s;
+}
+.contact-icons a:hover{
+    background:#00f2ff;
+    color:#000;
+    transform:translateY(-8px) scale(1.1);
+}
+.footer-text{
+    margin-top:40px;
+    font-size:14px;
+    opacity:.6;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+@media(max-width:768px){
+    .home{flex-direction:column;text-align:center;}
+    .hero-content h1{font-size:38px;}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">MY PORTFOLIO</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="home" id="home">
+    <div class="hero-image">
+        <img src="image.jpeg" alt="Muskaan Shaik profile photo">
+    </div>
+    <div class="hero-content">
+        <h1>Muskaan<br><span>Shaik</span></h1>
+        <p>Beginner web developer intern at Codveda Technologies.</p>
+        <a href="Muskaanshaik Resume.pdf" download class="resume-btn">
+            <i class="fas fa-download"></i> Resume
+        </a>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <h1 class="section-title">About Me</h1>
+    <p>Beginner web developer intern focusing on clean UI and responsive design.</p>
+</section>
+
+<section class="skills" id="skills">
+    <h1 class="section-title">Skills</h1>
+    <ul class="skills-list">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>Responsive Web Design</li>
+        <li>Basic JavaScript</li>
+        <li>Prompt Engineering</li>
+        <li>Git & GitHub</li>
+    </ul>
+</section>
+
+<section class="projects" id="projects">
+    <h1 class="section-title">Projects</h1>
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="img4.jpeg" alt="EduNexa AI learning platform project">
+            <div class="project-content">
+                <h2>EduNexa</h2>
+                <p>AI-powered smart learning platform.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="img5.png" alt="Jana Seva Mitra citizen support platform">
+            <div class="project-content">
+                <h2>Jana Seva Mitra</h2>
+                <p>AI citizen support platform.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="img3.png" alt="Remedica medication reminder app">
+            <div class="project-content">
+                <h2>Remedica</h2>
+                <p>Medication reminder application.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h1 class="section-title">Contact Me</h1>
+    <div class="contact-icons">
+        <a href="tel:+919666800864" aria-label="Call Muskaan" title="Call">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:muskaanshaik035@gmail.com" aria-label="Email Muskaan" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/Muskaans" target="_blank" rel="noopener noreferrer"
+           aria-label="Muskaan GitHub" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/muskaan-shaik-7946a43a0"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Muskaan LinkedIn" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+    <p class="footer-text">© 2026 Muskaan Shaik</p>
+</section>
+
+</body>
+</html>
